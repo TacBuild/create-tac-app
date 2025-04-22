@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import ora from 'ora';
@@ -10,9 +9,14 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { pastel, rainbow } from 'gradient-string';
-import figlet from 'figlet';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Log the directory of the CLI for debugging
+if (process.env.DEBUG) {
+  console.log(`CLI directory: ${__dirname}`);
+}
 
 const tacLogo = `
   ⚡ ████████╗ █████╗  ██████╗
@@ -104,11 +108,11 @@ try {
 
 const rootPackageJson = {
   name: projectName,
-  version: "0.1.0",
+  version: '0.1.0',
   private: true,
   scripts: {
-    "frontend": "cd frontend && npm run dev",
-    "contracts:build": `cd contracts && ${contractFramework === 'hardhat' ? 'npx hardhat compile' : 'forge build'}`
+    'frontend': 'cd frontend && npm run dev',
+    'contracts:build': `cd contracts && ${contractFramework === 'hardhat' ? 'npx hardhat compile' : 'forge build'}`
   }
 };
 fs.writeFileSync(
