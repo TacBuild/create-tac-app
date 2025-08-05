@@ -1,65 +1,76 @@
-# create-tac-app
+# Create TAC App
 
-A CLI tool to bootstrap TAC hybrid dApp development.
+The easiest way to get started with TAC is by using `create-tac-app`. This CLI tool enables you to quickly start building a new TAC hybrid dApp, with everything set up for you. You can create a new app using the default TAC template, which includes a Next.js frontend with integrated Hardhat smart contracts. To get started, use the following command:
+
+## Interactive
+
+You can create a new project interactively by running:
+
+```bash
+npx create-tac-app@latest
+# or
+yarn create tac-app
+# or
+pnpm create tac-app
+# or
+bunx create-tac-app
+```
+
+You will be asked for the name of your project:
+
+```
+✔ What is your project name? … my-tac-app
+```
+
+## Non-interactive
+
+You can also pass the project name as a command line argument to set up a new project non-interactively. See `create-tac-app --help`:
+
+```
+Usage: create-tac-app [project-name] [options]
+
+Arguments:
+  project-name                         name of the project
+
+Options:
+  -V, --version                        display version number
+  -v, --verbose                        enable verbose logging
+  --skip-install                       skip dependency installation
+  -h, --help                           display help for command
+```
+
+### Examples
+
+```bash
+# Create a project named "my-dapp"
+npx create-tac-app@latest my-dapp
+
+# Create with verbose logging
+npx create-tac-app@latest my-dapp --verbose
+
+# Create without installing dependencies
+npx create-tac-app@latest my-dapp --skip-install
+```
+
+## What You Get
+
+Your new TAC project includes:
+
+- **Next.js Frontend** - Modern React framework with App Router
+- **Hardhat Integration** - Smart contract development environment
+- **TAC SDK** - Pre-configured blockchain integration
+- **TypeScript Support** - Full type safety across the stack
 
 ## What is TAC?
 
-TAC (TON Application Chain) is a Layer 1 blockchain with a novel TON Adapter technology that enables Ethereum developers to deploy their existing applications and reach TON and Telegram's 1 billion user base.
+TAC is a Layer 1 blockchain with novel TON Adapter technology that enables Ethereum developers to deploy their existing applications and reach TON and Telegram's 1 billion user base.
 
-## Usage
+## Learn More
 
-```bash
-# Using npx (recommended)
-npx create-tac-app my-tac-app
+- [TAC Documentation](https://docs.tac.build)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Hardhat Documentation](https://hardhat.org/docs)
 
-# Or install globally
-npm install -g create-tac-app
-create-tac-app my-tac-app
-```
+## Contributing
 
-## Development
-
-### Installation
-
-```bash
-git clone https://github.com/TacBuild/create-tac-app.git
-cd create-tac-app
-npm install
-```
-
-### Testing
-
-```bash
-# Run tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run linting
-npm run lint
-```
-
-### Publishing
-
-This package uses semantic versioning. To publish a new version:
-
-```bash
-# For a patch release (bug fixes)
-npm version patch
-
-# For a minor release (new features, backwards compatible)
-npm version minor
-
-# For a major release (breaking changes)
-npm version major
-```
-
-The `npm version` command will:
-1. Run tests
-2. Update version in package.json
-3. Create a git tag
-4. Push changes and tags to GitHub
-5. Publish to npm
-
-You can also use the GitHub release workflow by creating a new release on GitHub.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
